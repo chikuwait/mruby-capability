@@ -463,13 +463,28 @@ void mrb_mruby_capability_gem_init(mrb_state *mrb)
   mrb_define_const(mrb, capability, "CAP_LEASE", mrb_fixnum_value(CAP_LEASE));
   mrb_define_const(mrb, capability, "CAP_AUDIT_WRITE", mrb_fixnum_value(CAP_AUDIT_WRITE));
   mrb_define_const(mrb, capability, "CAP_AUDIT_CONTROL", mrb_fixnum_value(CAP_AUDIT_CONTROL));
-  // mrb_define_const(mrb, capability, "CAP_SETFCAP",            mrb_fixnum_value(CAP_SETFCAP));
-  // mrb_define_const(mrb, capability, "CAP_MAC_OVERRIDE",       mrb_fixnum_value(CAP_MAC_OVERRIDE));
-  // mrb_define_const(mrb, capability, "CAP_MAC_ADMIN",          mrb_fixnum_value(CAP_MAC_ADMIN));
-  // mrb_define_const(mrb, capability, "CAP_SYSLOG",             mrb_fixnum_value(CAP_SYSLOG));
-  // mrb_define_const(mrb, capability, "CAP_WAKE_ALARM",         mrb_fixnum_value(CAP_WAKE_ALARM));
-  // mrb_define_const(mrb, capability, "CAP_BLOCK_SUSPEND",      mrb_fixnum_value(CAP_BLOCK_SUSPEND));
-  // mrb_define_const(mrb, capability, "CAP_COMPROMISE_KERNEL",  mrb_fixnum_value(CAP_COMPROMISE_KERNEL));
+
+#ifdef CAP_SETFCAP
+  mrb_define_const(mrb, capability, "CAP_SETFCAP",            mrb_fixnum_value(CAP_SETFCAP));
+#endif
+#ifdef CAP_MAC_OVERRIDE
+  mrb_define_const(mrb, capability, "CAP_MAC_OVERRIDE",       mrb_fixnum_value(CAP_MAC_OVERRIDE));
+#endif
+#ifdef CAP_MAC_ADMIN
+  mrb_define_const(mrb, capability, "CAP_MAC_ADMIN",          mrb_fixnum_value(CAP_MAC_ADMIN));
+#endif
+#ifdef CAP_SYSLOG
+  mrb_define_const(mrb, capability, "CAP_SYSLOG",             mrb_fixnum_value(CAP_SYSLOG));
+#endif
+#ifdef CAP_WAKE_ALARM
+  mrb_define_const(mrb, capability, "CAP_WAKE_ALARM",         mrb_fixnum_value(CAP_WAKE_ALARM));
+#endif
+#ifdef CAP_BLOCK_SUSPEND
+  mrb_define_const(mrb, capability, "CAP_BLOCK_SUSPEND",      mrb_fixnum_value(CAP_BLOCK_SUSPEND));
+#endif
+#ifdef CAP_COMPROMISE_KERNEL
+  mrb_define_const(mrb, capability, "CAP_COMPROMISE_KERNEL",  mrb_fixnum_value(CAP_COMPROMISE_KERNEL));
+#endif
 
   DONE;
 }
